@@ -15,6 +15,7 @@ import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PUT;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.core.MediaType;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -63,6 +64,21 @@ public class YelpService {
         String businesses = "";
         try {
             String results = yelpAPI.searchForBusinessesByLocation(DEFAULT_TERM, DEFAULT_LOCATION, 20);
+            JSONObject obj = (JSONObject) new JSONParser().parse(results);
+            businesses = obj.get("businesses").toString();
+        } catch (ParseException ex) {
+            Logger.getLogger(YelpService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return businesses;
+    }
+
+    @GET
+    @Path("{city}/{term}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public String doQuery(@PathParam("city") String city, @PathParam("term") String term) {
+        String businesses = "";
+        try {
+            String results = yelpAPI.searchForBusinessesByLocation(term, city, 20);
             JSONObject obj = (JSONObject) new JSONParser().parse(results);
             businesses = obj.get("businesses").toString();
         } catch (ParseException ex) {
