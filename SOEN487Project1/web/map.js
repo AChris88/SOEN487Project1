@@ -20,7 +20,7 @@ function initMap() {
             });
         },
         error: function () {
-            alert("error :(");
+            alert("init map error");
         }
     });
 }

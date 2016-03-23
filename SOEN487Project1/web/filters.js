@@ -1,4 +1,8 @@
 $(function () {
+
+    $("#city").val("Montreal, QC");
+    $("#term").val("dinner");
+
     var availableCities = [
         "Montreal, QC",
         "Vancouver, BC",
