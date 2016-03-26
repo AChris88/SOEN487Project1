@@ -19,23 +19,34 @@ and open the template in the editor.
         <script src="//code.jquery.com/jquery-1.10.2.js"></script>
         <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 
+
         <script type="text/javascript" src="map.js"></script>
         <script type="text/javascript" src="filters.js"></script>
         <script type="text/javascript" src="query.js"></script>
+        <script type="text/javascript" src="jsPDF.js"></script>
+        <script type="text/javascript" src="downloadify.js"></script>
+        <script type="text/javascript" src="downloadPDF.js"></script>
     </head>
     <body>
 
 
         <div id="map"></div>
 
-        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD8UwbNN-J9LS75GBbFb5nheveLkLl57Mo&callback=initMap"></script>
-
         <div id="input_div">
             <label for="city">City: </label>
-            <input id="city">
+            <input type="text" id="city">
             <label for="term">Term: </label>
-            <input id="term">
+            <input type="text" id="term">
             <button id="goBtn">GO</button>
+            <button id="downloadPDF_button">Download PDF</button>
+
+
         </div>
+
+        <div id="business_div">
+        </div>
+
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD8UwbNN-J9LS75GBbFb5nheveLkLl57Mo&callback=initMap"></script>
+
     </body>
 </html>

@@ -11,11 +11,6 @@ $(function () {
         "Calgary, AB",
         "Edmonton, AB",
         "Winnipeg, MB",
-        "Halifax, NS",
-        "Quebec City, QC",
-        "Hamilton, ON",
-        "Kitchener, ON",
-        "Windsor, ON"
     ];
     $("#city").autocomplete({
         source: availableCities
@@ -31,7 +26,9 @@ $(function () {
         "bar",
         "clubbing",
         "shopping",
-        "food"
+        "food",
+        "movies",
+        "hair salons"
     ];
     $("#term").autocomplete({
         source: availableTypes
