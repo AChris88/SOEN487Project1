@@ -42,9 +42,13 @@ html, body {
 }
 
 .businessAddress {
-     margin-left: 30px;
+    margin-left: 30px;
 }
 
 .h1 {
     text-align: center;
+}
+
+.list-group-item {
+    padding-bottom: 30px;
 }
