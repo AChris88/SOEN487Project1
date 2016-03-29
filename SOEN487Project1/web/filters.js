@@ -1,36 +1,73 @@
 $(function () {
 
     $("#city").val("Montreal, QC");
-    $("#term").val("dinner");
+    $("#term").val("Dinner");
+    
+    // typeahead autocomplete
+    var substringMatcher = function(strs) {
+        return function findMatches(q, cb) {
+            var matches, substringRegex;
 
-    var availableCities = [
-        "Montreal, QC",
-        "Vancouver, BC",
-        "Ottawa, ON",
-        "Toronto, ON",
-        "Calgary, AB",
-        "Edmonton, AB",
-        "Winnipeg, MB",
-    ];
-    $("#city").autocomplete({
-        source: availableCities
-    });
+            // an array that will be populated with substring matches
+            matches = [];
 
+            // regex used to determine if a string contains the substring `q`
+            substrRegex = new RegExp(q, 'i');
+
+            // iterate through the pool of strings and for any string that
+            // contains the substring `q`, add it to the `matches` array
+            $.each(strs, function(i, str) {
+                if (substrRegex.test(str)) {
+                    matches.push(str);
+                }
+            });
+
+            cb(matches);
+        };
+    };
 
     var availableTypes = [
-        "restaurants",
-        "breakfast",
-        "dinner",
-        "lunch",
-        "snack",
-        "bar",
-        "clubbing",
-        "shopping",
-        "food",
-        "movies",
-        "hair salons"
+       "Restaurants",
+       "Breakfast",
+       "Dinner",
+       "Lunch",
+       "Snack",
+       "Bar",
+       "Clubbing",
+       "Shopping",
+       "Food",
+       "Movies",
+       "Hair Salons"
     ];
-    $("#term").autocomplete({
-        source: availableTypes
+
+    var availableCities = [
+       "Montreal, QC",
+       "Vancouver, BC",
+       "Ottawa, ON",
+       "Toronto, ON",
+       "Calgary, AB",
+       "Edmonton, AB",
+       "Winnipeg, MB",
+    ];
+
+    $('#availableCities .typeahead').typeahead({
+        hint: true,
+        highlight: true,
+        minLength: 1
+    },
+    {
+        name: 'availableCities',
+        source: substringMatcher(availableCities)
     });
+
+    $('#availableTypes .typeahead').typeahead({
+        hint: true,
+        highlight: true,
+        minLength: 1
+    },
+    {
+        name: 'availableTypes',
+        source: substringMatcher(availableTypes)
+    });
+    
 });

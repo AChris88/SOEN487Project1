@@ -1,4 +1,5 @@
 $(function () {
+    $("#business_div").hide();
     $("#goBtn").click(function () {
 
         var term = $("#term").val();
@@ -24,7 +25,8 @@ $(function () {
                     dataType: "json",
                     success: function (businesses) {
 
-                        $businessList.append('<h1><u>Results found for "' + term + '" in ' + location + '</u></h1>');
+                        $businessList.append('<div class="title"><h1>Results found for "' + 
+                                term + '" in ' + location + '</h1></div>');
 
                         $.each(businesses, function (index, business) {
                             marker = new google.maps.Marker({
@@ -33,12 +35,16 @@ $(function () {
                                 map: map,
                                 title: business.name
                             });
+                            
+                            $businessList.append('<ul class="list-group">');
 
-                            $businessList.append("<h3>" + business.name + "</h3>" +
-                                    business.location.display_address + "<br>");
+                            $businessList.append('<li class="list-group-item"><div class="businessTitle"><h3>' + business.name + '</h3></div><div  class="businessAddress">' +
+                                    business.location.display_address + "</div></li>");
 
                             markers.push(marker);
                         });
+                        
+                        $businessList.append('</ul>');
 
 
 
@@ -50,6 +56,7 @@ $(function () {
 
                 $businessList.append("</div>");
                 $('#business_div').append($businessList);
+                $("#business_div").show();
 
             } else {
                 alert("Could not find location: " + location);
