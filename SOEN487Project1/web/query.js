@@ -26,7 +26,9 @@ $(function () {
                     success: function (businesses) {
 
                         $businessList.append('<div class="title"><h1>Results found for "' + 
-                                term + '" in ' + location + '</h1></div>');
+                                term + '" in ' + location + '</h1></div>' +
+                                '<div class="businessAnchor"><a name=' + 
+                                businesses[0].name.replace(/\s/g, '') + '></a></div>');
 
                         $.each(businesses, function (index, business) {
                             marker = new google.maps.Marker({
@@ -37,10 +39,20 @@ $(function () {
                             });
                             
                             $businessList.append('<ul class="list-group">');
+                            var anchor = '';
+                            if (index !== 0) {
+                                anchor = '<div class="businessAnchor"><a name=' + businesses[index + 1].name.replace(/\s/g, '') + '></a></div>'
+                            }
+                            $businessList.append('<li class="list-group-item">'+
+                                    '<div class="businessTitle"><h3>' + business.name + '</h3>'+
+                                    '</div><div  class="businessAddress">' +
+                                    business.location.display_address + "</div>" + anchor + "</li>");
+                                
 
-                            $businessList.append('<li class="list-group-item"><div class="businessTitle"><h3>' + business.name + '</h3></div><div  class="businessAddress">' +
-                                    business.location.display_address + "</div></li>");
-
+                            marker.addListener('click', function() {
+                                var loc = document.location.toString().split('#')[0];
+                                document.location= loc + '#'+business.name.replace(/\s/g, '');
+                              });
                             markers.push(marker);
                         });
                         
