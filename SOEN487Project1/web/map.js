@@ -9,7 +9,7 @@ function initMap() {
     var $defaultLocation = "Montreal, QC";
     var $defaultTerm = "dinner";
 
-    $.ajax({
+    /*$.ajax({
         method: "GET",
         url: "http://localhost:8080/SOEN487Project1/webresources/yelp",
         dataType: "json",
@@ -33,7 +33,7 @@ function initMap() {
         error: function () {
             alert("Error initializing map");
         }
-    });
+    });*/
 
     $businessList.append("</div>");
     $('#business_div').append($businessList);

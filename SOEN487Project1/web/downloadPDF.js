@@ -8,7 +8,7 @@ $(function () {
             }
         };
 
-        doc.fromHTML($('#business_div').get(0), 15, 15, {
+        doc.fromHTML($('#itinerary').get(0), 15, 15, {
             'width': 170,
             'elementHandlers': specialElementHandlers
         });

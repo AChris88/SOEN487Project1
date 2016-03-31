@@ -9,7 +9,7 @@ $(function () {
         var geocoder = new google.maps.Geocoder();
         var location = $("#city").val();
         geocoder.geocode({'address': location}, function (results, status) {
-            if (status == google.maps.GeocoderStatus.OK) {
+            if (status === google.maps.GeocoderStatus.OK) {
 
                 // remove markers
                 for (i = 0; i < markers.length; i++) {
@@ -39,15 +39,13 @@ $(function () {
                             });
                             
                             $businessList.append('<ul class="list-group">');
-                            var anchor = '';
-                            if (index !== 0) {
-                                anchor = '<div class="businessAnchor"><a name=' + businesses[index + 1].name.replace(/\s/g, '') + '></a></div>'
-                            }
+                            var anchor = '<div class="businessAnchor"><a name=' + businesses[index + 1].name.replace(/\s/g, '') + '></a></div>'
+                            
                             $businessList.append('<li class="list-group-item">'+
                                     '<div class="businessTitle"><h3>' + business.name + '</h3>'+
                                     '</div><div  class="businessAddress">' +
                                     business.location.display_address + "</div>" + anchor + 
-                                    '<div  class="add">Click to add to itinerary</div>' +
+                                    '<div  class="add"><a class="addButton">Click to add to itinerary</a></div>' +
                                     "</li>");
                                 
 
@@ -69,7 +67,7 @@ $(function () {
                 $businessList.append("</div>");
                 $('#business_div').append($businessList);
                 $("#business_div").show();
-
+                
             } else {
                 alert("Could not find location: " + location);
             }
