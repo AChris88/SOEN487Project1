@@ -6,6 +6,7 @@
 
 $(document).ready(function () {
     $("body").on('click', '.addButton', function(){
+        $("#itinerary").show();
         var businessLi = $(event.target).closest('li');
         var anchor = $(businessLi).children()[3];
         if (anchor === null) {
@@ -18,8 +19,13 @@ $(document).ready(function () {
     });
     
     $("body").on('click', '.removeButton', function(){
+        
         var itineraryLi = $(event.target).closest('li');
         $(itineraryLi).remove();
-
+        
+        // Check if itinerary list is empty. If so, hide div.
+        if ($('#itinerary_list li').length === 0) {
+            $("#itinerary").hide();
+        }
     });
 });

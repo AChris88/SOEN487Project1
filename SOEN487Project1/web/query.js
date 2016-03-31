@@ -1,5 +1,6 @@
 $(function () {
     $("#business_div").hide();
+    $("#itinerary").hide();
     $("#goBtn").click(function () {
 
         var term = $("#term").val();
