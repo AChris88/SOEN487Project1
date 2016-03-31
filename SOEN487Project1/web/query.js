@@ -46,20 +46,20 @@ $(function () {
                             $businessList.append('<li class="list-group-item">'+
                                     '<div class="businessTitle"><h3>' + business.name + '</h3>'+
                                     '</div><div  class="businessAddress">' +
-                                    business.location.display_address + "</div>" + anchor + "</li>");
+                                    business.location.display_address + "</div>" + anchor + 
+                                    '<div  class="add">Click to add to itinerary</div>' +
+                                    "</li>");
                                 
 
                             marker.addListener('click', function() {
                                 var loc = document.location.toString().split('#')[0];
                                 document.location= loc + '#'+business.name.replace(/\s/g, '');
                               });
+                              
                             markers.push(marker);
                         });
                         
                         $businessList.append('</ul>');
-
-
-
                     },
                     error: function () {
                         alert("No businesses found");
