@@ -26,38 +26,44 @@ $(function () {
                     dataType: "json",
                     success: function (businesses) {
 
-                        $businessList.append('<div class="title"><h1>Results found for "' + 
+                        $businessList.append('<div class="title"><h1>Results found for "' +
                                 term + '" in ' + location + '</h1></div>' +
-                                '<div class="businessAnchor"><a name=' + 
+                                '<div class="businessAnchor"><a name=' +
                                 businesses[0].name.replace(/\s/g, '') + '></a></div>');
 
                         $.each(businesses, function (index, business) {
+                            
                             marker = new google.maps.Marker({
                                 position: new google.maps.LatLng(business.location.coordinate.latitude,
                                         business.location.coordinate.longitude),
                                 map: map,
                                 title: business.name
                             });
-                            
+
                             $businessList.append('<ul class="list-group">');
                             var anchor = '<div class="businessAnchor"><a name=' + businesses[index + 1].name.replace(/\s/g, '') + '></a></div>'
-                            
-                            $businessList.append('<li class="list-group-item">'+
-                                    '<div class="businessTitle"><h3>' + business.name + '</h3>'+
-                                    '</div><div  class="businessAddress">' +
-                                    business.location.display_address + "</div>" + anchor + 
+
+                            $businessList.append('<li class="list-group-item">' +
+                                    '<div class="businessTitle"><h3>' + business.name + '</h3>' +
+                                    '<div class="businessRating">Rating: ' +
+                                    business.rating + "/5</div>" +
+                                    '<div class="businessAddress">' +
+                                    business.location.display_address + "</div>" +
+                                    '<div class="businessPhone">' +
+                                    business.display_phone + "</div>" +
+                                    anchor +
                                     '<div  class="add"><a class="addButton">Click to add to itinerary</a></div>' +
                                     "</li>");
-                                
 
-                            marker.addListener('click', function() {
+
+                            marker.addListener('click', function () {
                                 var loc = document.location.toString().split('#')[0];
-                                document.location= loc + '#'+business.name.replace(/\s/g, '');
-                              });
-                              
+                                document.location = loc + '#' + business.name.replace(/\s/g, '');
+                            });
+
                             markers.push(marker);
                         });
-                        
+
                         $businessList.append('</ul>');
                     },
                     error: function () {
@@ -68,7 +74,7 @@ $(function () {
                 $businessList.append("</div>");
                 $('#business_div').append($businessList);
                 $("#business_div").show();
-                
+
             } else {
                 alert("Could not find location: " + location);
             }
