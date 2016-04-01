@@ -8,10 +8,7 @@ $(document).ready(function () {
     $("body").on('click', '.addButton', function(event){
         $("#itinerary").show();
         var businessLi = $(event.target).closest('li');
-        var anchor = $(businessLi).children()[3];
-        if (anchor === null) {
-            anchor = $(businessLi).children()[2];
-        }
+        var anchor = $(businessLi).find('.add');
         $(anchor).replaceWith('<div  class="remove"><a class="removeButton">Remove</a></div>');
         $(businessLi).remove();
         $("#itinerary_list").append('<li class="list-group-item">' + $(businessLi).html() + '</li>');
