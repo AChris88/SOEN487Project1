@@ -44,7 +44,7 @@ $(function () {
                             var anchor = '<div class="businessAnchor"><a name=' + businesses[index + 1].name.replace(/\s/g, '') + '></a></div>'
 
                             $businessList.append('<li class="list-group-item">' +
-                                    '<div class="businessTitle"><h3>' + business.name + '</h3>' +
+                                    '<div class="businessTitle"><h3>' + business.name + '</h3></div>' +
                                     '<div class="businessRating">Rating: ' +
                                     business.rating + "/5</div>" +
                                     '<div class="businessAddress">' +
