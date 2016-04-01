@@ -5,7 +5,7 @@
  */
 
 $(document).ready(function () {
-    $("body").on('click', '.addButton', function(){
+    $("body").on('click', '.addButton', function(event){
         $("#itinerary").show();
         var businessLi = $(event.target).closest('li');
         var anchor = $(businessLi).children()[3];
@@ -18,7 +18,7 @@ $(document).ready(function () {
 
     });
     
-    $("body").on('click', '.removeButton', function(){
+    $("body").on('click', '.removeButton', function(event){
         
         var itineraryLi = $(event.target).closest('li');
         $(itineraryLi).remove();
