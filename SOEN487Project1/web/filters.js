@@ -1,3 +1,32 @@
+function Filters(){
+
+    
+}
+
+Filters.availableTypes = [
+       "Restaurants",
+       "Breakfast",
+       "Dinner",
+       "Lunch",
+       "Snack",
+       "Bar",
+       "Clubbing",
+       "Shopping",
+       "Food",
+       "Movies",
+       "Hair Salons"
+    ];
+        
+Filters.availableCities = [
+       "Montreal, QC",
+       "Vancouver, BC",
+       "Ottawa, ON",
+       "Toronto, ON",
+       "Calgary, AB",
+       "Edmonton, AB",
+       "Winnipeg, MB",
+    ];
+
 $(function () {
 
     $("#city").val("Montreal, QC");
@@ -25,31 +54,7 @@ $(function () {
             cb(matches);
         };
     };
-
-    var availableTypes = [
-       "Restaurants",
-       "Breakfast",
-       "Dinner",
-       "Lunch",
-       "Snack",
-       "Bar",
-       "Clubbing",
-       "Shopping",
-       "Food",
-       "Movies",
-       "Hair Salons"
-    ];
-
-    var availableCities = [
-       "Montreal, QC",
-       "Vancouver, BC",
-       "Ottawa, ON",
-       "Toronto, ON",
-       "Calgary, AB",
-       "Edmonton, AB",
-       "Winnipeg, MB",
-    ];
-
+    
     $('#availableCities .typeahead').typeahead({
         hint: true,
         highlight: true,

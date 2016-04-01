@@ -1,6 +1,19 @@
 $(function () {
     $("#business_div").hide();
     $("#itinerary").hide();
+    
+    $("#availableCities").append('<select name="availableCities" id="city" class="form-control typeahead">');
+    $.each(Filters.availableCities, function(index, element) {
+                            $('#city').append($('<option value=' + element + '">' + element + '</option>'));
+                            });
+    $("#availableCities").append('</select>');
+    
+    $("#availableTypes").append('<select name="availableCities" id="term" class="form-control typeahead">');
+    $.each(Filters.availableTypes, function(index, element) {
+                            $('#term').append($('<option value=' + element + '">' + element + '</option>'));
+                            });
+    $("#availableTypes").append('</select>');
+    
     $("#goBtn").click(function () {
 
         var term = $("#term").val();
