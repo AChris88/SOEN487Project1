@@ -11,6 +11,12 @@ $(document).ready(function () {
         var anchor = $(businessLi).find('.add');
         $(anchor).replaceWith('<div  class="remove"><a class="removeButton">Remove</a></div>');
         $(businessLi).remove();
+        marker = new google.maps.Marker({
+                                position: new google.maps.,
+                                map: map,
+                                title: "ninja"
+                            });
+        markers.push(marker);
         $("#itinerary_list").append('<li class="list-group-item">' + $(businessLi).html() + '</li>');
 
     });
