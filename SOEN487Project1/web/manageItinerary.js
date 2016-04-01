@@ -11,12 +11,13 @@ $(document).ready(function () {
         var anchor = $(businessLi).find('.add');
         $(anchor).replaceWith('<div  class="remove"><a class="removeButton">Remove</a></div>');
         $(businessLi).remove();
-        marker = new google.maps.Marker({
-                                position: new google.maps.,
+        /*marker = new google.maps.Marker({
+                                position: new google.maps.LatLng(45.5230253487909,
+                                        -73.5950717593209),
                                 map: map,
                                 title: "ninja"
                             });
-        markers.push(marker);
+        markers.push(marker);*/
         $("#itinerary_list").append('<li class="list-group-item">' + $(businessLi).html() + '</li>');
 
     });
