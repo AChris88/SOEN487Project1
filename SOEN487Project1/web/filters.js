@@ -24,12 +24,12 @@ Filters.availableCities = [
        "Toronto ON",
        "Calgary AB",
        "Edmonton AB",
-       "Winnipeg MB",
+       "Winnipeg MB"
     ];
 
 $(function () {
 
-    $("#city").val("Montreal, QC");
+    $("#city").val("Montreal QC");
     $("#term").val("Dinner");
     
     // typeahead autocomplete
