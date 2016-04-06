@@ -27,7 +27,11 @@ $(function () {
 
                 // remove markers
                 for (i = 0; i < markers.length; i++) {
-                    markers[i].setMap(null);
+                    if(!(markers[i]['class'] === 'itinerary')) {
+                       markers[i].setMap(null);
+                    } else {
+                        alert("o-oh say can you see-e " + markers[i]['class']);
+                    }
                 }
 
                 map.setCenter(results[0].geometry.location);
@@ -54,7 +58,10 @@ $(function () {
                             });
 
                             $businessList.append('<ul class="list-group">');
-                            var anchor = '<div class="businessAnchor"><a name=' + businesses[index + 1].name.replace(/\s/g, '') + '></a></div>'
+                            var anchor = '';
+                            if(index + 1 < businesses.length) {
+                                anchor = '<div class="businessAnchor"><a name=' + businesses[index + 1].name.replace(/\s/g, '') + '></a></div>'
+                            }
 
                             $businessList.append('<li class="list-group-item">' +
                                     '<div class="businessTitle"><h3>' + business.name + '</h3></div>' +
