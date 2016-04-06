@@ -18,13 +18,13 @@ Filters.availableTypes = [
     ];
         
 Filters.availableCities = [
-       "Montreal, QC",
-       "Vancouver, BC",
-       "Ottawa, ON",
-       "Toronto, ON",
-       "Calgary, AB",
-       "Edmonton, AB",
-       "Winnipeg, MB",
+       "Montreal QC",
+       "Vancouver BC",
+       "Ottawa ON",
+       "Toronto ON",
+       "Calgary AB",
+       "Edmonton AB",
+       "Winnipeg MB",
     ];
 
 $(function () {
