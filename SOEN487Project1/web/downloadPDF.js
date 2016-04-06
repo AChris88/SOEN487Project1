@@ -7,8 +7,14 @@ $(function () {
                 return true;
             }
         };
-
-        doc.fromHTML($('#itinerary').get(0), 15, 15, {
+        
+        var divToPrint = $('#itinerary').get(0);
+        var htmlToPrint = $(divToPrint).clone();
+        alert($(divToPrint).html());
+        alert($(htmlToPrint).html());
+        $(htmlToPrint).find('.remove').remove();
+        alert($(htmlToPrint).html());
+        doc.fromHTML($(htmlToPrint).html(), 15, 15, {
             'width': 170,
             'elementHandlers': specialElementHandlers
         });

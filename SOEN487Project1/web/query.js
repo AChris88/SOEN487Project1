@@ -4,15 +4,15 @@ $(function () {
     
     $("#availableCities").append('<select name="availableCities" id="city" class="form-control typeahead">');
     $.each(Filters.availableCities, function(index, element) {
-                            $('#city').append($('<option value=' + element + '">' + element + '</option>'));
+                            $('#city').append($('<option value=' + element + '>' + element + '</option>'));
                             });
     $("#availableCities").append('</select>');
     
     $("#availableTypes").append('<select name="availableCities" id="term" class="form-control typeahead">');
     $.each(Filters.availableTypes, function(index, element) {
-                            $('#term').append($('<option value=' + element + '">' + element + '</option>'));
-                            });
-    $("#availableTypes").append('</select>');
+                            $('#term').append($('<option value=' + element + '>' + element + '</option>'));
+                            }); 
+   $("#availableTypes").append('</select>');
     
     $("#goBtn").click(function () {
 
@@ -25,12 +25,10 @@ $(function () {
         geocoder.geocode({'address': location}, function (results, status) {
             if (status === google.maps.GeocoderStatus.OK) {
 
-                // remove markers
+                // remove search markers
                 for (i = 0; i < markers.length; i++) {
                     if(!(markers[i]['class'] === 'itinerary')) {
                        markers[i].setMap(null);
-                    } else {
-                        alert("o-oh say can you see-e " + markers[i]['class']);
                     }
                 }
 

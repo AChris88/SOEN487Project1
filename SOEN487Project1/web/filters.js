@@ -14,7 +14,7 @@ Filters.availableTypes = [
        "Shopping",
        "Food",
        "Movies",
-       "Hair Salons"
+       "Salons"
     ];
         
 Filters.availableCities = [
